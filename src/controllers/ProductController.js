@@ -36,6 +36,6 @@ module.exports = {
         return res.send();
     },
     async root(req, res) {
-        return res.sendFile('index.html',{root: __dirname});
+        return res.sendFile('/views/index.html',{root: "./src"});
     }
 };
