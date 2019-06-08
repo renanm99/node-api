@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const Product = mongoose.model("Product");
 
 module.exports = {
@@ -35,5 +34,8 @@ module.exports = {
         await Product.findOneAndRemove(req.params.id);
 
         return res.send();
+    },
+    async root(req, res) {
+        return res.sendFile('index.html',{root: __dirname});
     }
 };
