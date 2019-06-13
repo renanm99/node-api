@@ -35,9 +35,6 @@ module.exports = {
         return res.send();
     },
     async root(req, res) {
-        const { page = 1 } = req.query;
-        const products = await Product.paginate({}, { page, limit: 10 });
-        return res.send(products);
-        //return res.sendFile('/views/index.html',{root: "./src"});
+        return res.sendFile('/views/index.html',{root: "./src"});
     }
 };
