@@ -18,6 +18,9 @@ const Product = mongoose.model("Product");
 
 // Primeira rota
 app.use("/", require("./src/routes"));
+// app.use("/", function(req,res){
+//     return res.sendFile('/views/index.html',{root: "./src"});
+// });
 
 app.listen(3001, (err, res) => {
     if (err) {
