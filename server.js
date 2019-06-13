@@ -9,9 +9,13 @@ app.use(express.json());
 app.use(cors());
 
 // Iniciando o DB
-mongoose.connect("mongodb://localhost:27017/nodeapi", {
-    useNewUrlParser: true
-});
+
+mongoose.connect(
+    "mongodb+srv://nodeapi:lota78199Z@cluster0aula-93nfw.mongodb.net/nodeapi?retryWrites=true&w=majority",
+    {
+        useNewUrlParser: true
+    }
+);
 requireDir("./src/models");
 
 const Product = mongoose.model("Product");
