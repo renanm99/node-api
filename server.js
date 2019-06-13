@@ -3,6 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const requireDir = require("require-dir");
 
+var port = process.env.PORT || 8080;
+
 // Iniciando o App
 const app = express();
 app.use(express.json());
@@ -14,15 +16,18 @@ mongoose.connect("mongodb+srv://nodeapi:lota78199Z@cluster0aula-93nfw.mongodb.ne
 
 requireDir("./src/models");
 
+bodyParser = require('body-parser');
+
 const Product = mongoose.model("Product");
 
-// Primeira rota
-app.use("/", require("./src/routes"));
-// app.use("/", function(req,res){
-//     return res.sendFile('/views/index.html',{root: "./src"});
-// });
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+var routes = require('./src/routes');
+// routes(app);
 
-app.listen(3001, (err, res) => {
+app.use("/", routes);
+
+app.listen(port, (err, res) => {
     if (err) {
         console.log("Port no available or being used.");
     }
