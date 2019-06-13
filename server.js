@@ -17,7 +17,7 @@ requireDir("./src/models");
 const Product = mongoose.model("Product");
 
 // Primeira rota
-app.use("/api", require("./src/routes"));
+app.use("/", require("./src/routes"));
 
 app.listen(3001, (err, res) => {
     if (err) {
