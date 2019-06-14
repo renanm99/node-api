@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const requireDir = require("require-dir");
 
 var port = process.env.PORT || 8080;
+var user = process.env['USER_MONGO'];
+var pass = process.env['PASS_MONGO'];
 
 // Iniciando o App
 const app = express();
@@ -12,7 +14,7 @@ app.use(cors());
 
 // Iniciando o DB
 
-mongoose.connect("mongodb+srv://nodeapi:lota78199Z@cluster0aula-93nfw.mongodb.net/nodeapi?retryWrites=true&w=majority",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://"+user+":"+pass+"@cluster0aula-93nfw.mongodb.net/nodeapi?retryWrites=true&w=majority",{useNewUrlParser: true});
 
 requireDir("./src/models");
 
